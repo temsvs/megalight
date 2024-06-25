@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { ru, fakerRU } = require('@faker-js/faker')
+const { fakerRU } = require('@faker-js/faker')
 
 const getRandomArrayValue = (arr) => arr[Math.floor(Math.random() * arr.length)]
 
@@ -50,16 +50,16 @@ module.exports = {
         return {
           category: 'office',
           type,
-          price: +faker.string.numeric(2).replace(/.{0,2}$/, 9),
-          name: faker.lorem.sentence(2),
-          description: faker.lorem.sentences(10),
+          price: +fakerRU.string.numeric(2).replace(/.{0,2}$/, 9),
+          name: fakerRU.lorem.sentence(2),
+          description: fakerRU.lorem.sentences(10),
           characteristics: characteristics.find((item) => item.type === type),
           images: images.filter((item) => item.includes(type)),
-          vendorCode: faker.string.numeric(5),
-          inStock: faker.string.numeric(2),
-          isBestseller: faker.datatype.boolean(),
-          isNew: faker.datatype.boolean(),
-          popularity: +faker.string.numeric(3),
+          vendorCode: fakerRU.string.numeric(5),
+          inStock: fakerRU.string.numeric(2),
+          isBestseller: fakerRU.datatype.boolean(),
+          isNew: fakerRU.datatype.boolean(),
+          popularity: +fakerRU.string.numeric(3),
           sizes: {},
         }
       })
@@ -70,3 +70,4 @@ module.exports = {
     return db.collection('office').updateMany([])
   },
 }
+
