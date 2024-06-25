@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { ru, fakerRU } = require('@faker-js/faker')
+const { fakerRU } = require('@faker-js/faker')
 
 const getRandomArrayValue = (arr) => arr[Math.floor(Math.random() * arr.length)]
 
@@ -64,7 +64,7 @@ module.exports = {
             collar: getRandomArrayValue(collars),
             silhouette: 'straight',
             print: 'chocolate, print, melange',
-            decor: faker.datatype.boolean(),
+            decor: fakerRU.datatype.boolean(),
             composition: getRandomArrayValue(compositions),
             season: getRandomArrayValue(seasons),
             collection:
@@ -76,7 +76,7 @@ module.exports = {
             collar: getRandomArrayValue(collars),
             silhouette: 'straight',
             print: 'chocolate, print, melange',
-            decor: faker.datatype.boolean(),
+            decor: fakerRU.datatype.boolean(),
             composition: getRandomArrayValue(compositions),
             features: getRandomArrayValue(features),
             fabricType: getRandomArrayValue(fabricTypes),
@@ -91,19 +91,19 @@ module.exports = {
             collar: getRandomArrayValue(collars),
             silhouette: 'straight',
             print: 'chocolate, print, melange',
-            decor: faker.datatype.boolean(),
+            decor: fakerRU.datatype.boolean(),
             composition: getRandomArrayValue(compositions),
             features: getRandomArrayValue(features),
             fabricType: getRandomArrayValue(fabricTypes),
             sleeve: getRandomArrayValue(sleeves),
-            clasp: faker.datatype.boolean(),
+            clasp: fakerRU.datatype.boolean(),
             season: getRandomArrayValue(seasons),
           },
           {
             type: 'outerwear',
             color: getRandomArrayValue(colors),
             collar: getRandomArrayValue(collars),
-            decor: faker.datatype.boolean(),
+            decor: fakerRU.datatype.boolean(),
             composition: getRandomArrayValue(compositions),
             features: getRandomArrayValue(features),
             upperMaterial: getRandomArrayValue(upperMaterials),
@@ -119,25 +119,25 @@ module.exports = {
         return {
           category: 'cloth',
           type,
-          price: +faker.string.numeric(2).replace(/.{0,2}$/, 39),
-          name: faker.lorem.sentence(2),
-          description: faker.lorem.sentences(10),
+          price: +fakerRU.string.numeric(2).replace(/.{0,2}$/, 39),
+          name: fakerRU.lorem.sentence(2),
+          description: fakerRU.lorem.sentences(10),
           characteristics: currentCharacteristics,
           images:
             type === 't-shirts' && currentCharacteristics.collection === 'line'
               ? [getRandomArrayValue(lineImages)]
               : images.filter((item) => item.includes(type)),
-          vendorCode: faker.string.numeric(5),
-          inStock: faker.string.numeric(2),
-          isBestseller: faker.datatype.boolean(),
-          isNew: faker.datatype.boolean(),
-          popularity: +faker.string.numeric(3),
+          vendorCode: fakerRU.string.numeric(5),
+          inStock: fakerRU.string.numeric(2),
+          isBestseller: fakerRU.datatype.boolean(),
+          isNew: fakerRU.datatype.boolean(),
+          popularity: +fakerRU.string.numeric(3),
           sizes: {
-            s: faker.datatype.boolean(),
-            l: faker.datatype.boolean(),
-            m: faker.datatype.boolean(),
-            xl: faker.datatype.boolean(),
-            xxl: faker.datatype.boolean(),
+            s: fakerRU.datatype.boolean(),
+            l: fakerRU.datatype.boolean(),
+            m: fakerRU.datatype.boolean(),
+            xl: fakerRU.datatype.boolean(),
+            xxl: fakerRU.datatype.boolean(),
           },
         }
       })
@@ -148,3 +148,4 @@ module.exports = {
     return db.collection('cloth').updateMany([])
   },
 }
+
