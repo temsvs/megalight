@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { ru, fakerRU } = require('@faker-js/faker')
+const { fakerRU } = require('@faker-js/faker')
 
 const getRandomArrayValue = (arr) => arr[Math.floor(Math.random() * arr.length)]
 const collections = ['street', 'black', 'casual', 'orange', 'white']
@@ -61,25 +61,25 @@ module.exports = {
         return {
           category: 'accessories',
           type,
-          price: +faker.string.numeric(2).replace(/.{0,2}$/, 24),
-          name: faker.lorem.sentence(2),
-          description: faker.lorem.sentences(10),
+          price: +fakerRU.string.numeric(2).replace(/.{0,2}$/, 24),
+          name: fakerRU.lorem.sentence(2),
+          description: fakerRU.lorem.sentences(10),
           characteristics: characteristics.find((item) => item.type === type),
           images: images.filter((item) => item.includes(type)),
-          vendorCode: faker.string.numeric(5),
-          inStock: faker.string.numeric(2),
-          isBestseller: faker.datatype.boolean(),
-          isNew: faker.datatype.boolean(),
-          popularity: +faker.string.numeric(3),
+          vendorCode: fakerRU.string.numeric(5),
+          inStock: fakerRU.string.numeric(2),
+          isBestseller: fakerRU.datatype.boolean(),
+          isNew: fakerRU.datatype.boolean(),
+          popularity: +fakerRU.string.numeric(3),
           sizes:
             type === 'umbrella'
               ? {}
               : {
-                  s: faker.datatype.boolean(),
-                  l: faker.datatype.boolean(),
-                  m: faker.datatype.boolean(),
-                  xl: faker.datatype.boolean(),
-                  xxl: faker.datatype.boolean(),
+                  s: fakerRU.datatype.boolean(),
+                  l: fakerRU.datatype.boolean(),
+                  m: fakerRU.datatype.boolean(),
+                  xl: fakerRU.datatype.boolean(),
+                  xxl: fakerRU.datatype.boolean(),
                 },
         }
       })
